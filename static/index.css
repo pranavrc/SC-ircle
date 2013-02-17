@@ -38,7 +38,11 @@ a {
 }
 
 a:link {
-	color: black;
+	color: #800000;
+}
+
+a:visited {
+	color: #696969;
 }
 
 fieldset {
@@ -54,4 +58,8 @@ hr {
 	background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.3), rgba(0,0,0,0));
 	background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.3), rgba(0,0,0,0));
 	background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.3), rgba(0,0,0,0));
+}
+
+i {
+	font-size: 11px;
 }
