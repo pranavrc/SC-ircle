@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset="utf-8" />
+<title>The Soundcloud CircleJerk.</title>
+<link href="{{ url_for('static', filename='index.css') }}" rel="stylesheet" type="text/css" />
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "f187793e-d1ad-4240-8539-cc3e6cdec44f", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+</head>
+
+<body>
+
+<div class="formDiv">
+<form id="userform" action="" onsubmit="return submitForm();">
+<fieldset>
+<input class="submitText" type="text" placeholder="Soundcloud Profile Link Name (soundcloud.com/this/)" name="name" />
+<input class="submitBtn" type="submit" value="Submit" disabled="disabled" onclick="return submitForm();" />
+</fieldset>
+<hr />
+</form>
+</div>
+
+<div class="myDiv">Find out the people you're following who aren't following you back. (Depending on the number of users in your 'following' and 'followers' lists, this might take a while.)<hr />Also, just to clear things up, if your profile link is http://soundcloud.com/foo/, type 'foo' into the text box.</div>
+
+<hr />
+
+<p style="text-align:center;">
+<span class='st_sharethis_hcount' displayText='ShareThis'></span>
+<span class='st_plusone_hcount' displayText='Google +1'></span>
+<span class='st_twitter_hcount' displayText='Tweet'></span>
+<span class='st_fblike_hcount' displayText='Facebook Like'></span><hr />
+<p style="text-align:center;"><a href="http://soundcloud.onloop.net/">Home</a> | <a href="http://soundcloud.com/studiomurk/" onclick="window.open(this.href);return false;">My Soundcloud</a> | <a href="mailto:me@onloop.net">Mail</a> | <a href="http://github.com/pranavrc/SC-irclejerk/" onclick="window.open(this.href);return false;">Fork</a> | <a href="https://getsatisfaction.com/soundcloud/topics/anti_fake_spam_followers_maximum_number_of_follows_per_day" title="For Soundcloud users who are tired of promotional follows, spam comments and fake listens." onclick="window.open(this.href);return false;">What?</a></p>
+</p>
+
+<p><br /></p>
+
+<script type="text/javascript" src="{{ url_for('static', filename='jquery-1.7.2.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='jquery.watermarkinput.js') }}"></script>
+<script type="text/javascript">
+	/*<![CDATA[*/
+	function submitForm() {
+		$('div.myDiv').html('<img src="{{ url_for('static', filename='loader.gif') }}" alt="Fetching..." />');
+    	$.ajax({type:'POST', url: '/', data:$('#userform').serialize(), success: function(response) {
+        	$('div.myDiv').html(response);
+		}});
+
+		return false;
+	}
+
+	function getURLParameter(name) {
+	    return decodeURI(
+    	    (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+	    );
+	}
+
+    $(document).ready(function(){
+                /*jQuery(function($){
+	        $('.submitText').Watermark("Soundcloud Profile Link Name (soundcloud.com/this/)");
+		});*/
+
+    	$(".submitBtn").attr("disabled", "true");
+		$(".submitText").keyup(function(){
+	        if ($(this).val() != "") {
+        	    $(".submitBtn").removeAttr("disabled");
+		    } else {
+		        $(".submitBtn").attr("disabled", "true");
+	        }
+		});
+		
+		var urlparam = getURLParameter('q');
+		if (urlparam != 'null') {
+			urlparam = urlparam.split('+').join(' ');
+			$('.submitText').val(urlparam);
+			submitForm();
+		}
+	});
+	/*]]>*/
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33195086-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>

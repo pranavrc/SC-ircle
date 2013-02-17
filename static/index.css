@@ -1,0 +1,57 @@
+input {
+	border-radius: 10px /* creates rounded edges in some browsers */;
+	padding-left: 10px; /* creates a space between text and left border */;
+	width: 375px;
+	border: 1px solid #999;
+	height: 25px;
+	-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+
+.submitBtn {
+	width:100px;
+}
+
+.myDiv {
+	border-radius: 10px;
+	padding: 10px;
+	border: 1px solid #999;
+        width: 375px;
+	-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+	font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+	font-size:15px;
+	margin: auto;
+	text-align: center;
+}
+
+.formDiv {
+	margin: auto;
+	text-align: center;
+}
+
+a {
+	font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+	font-size:15px;
+}
+
+a:link {
+	color: black;
+}
+
+fieldset {
+	background-color: transparent;
+	border-color: transparent;
+}
+
+hr {
+	color: white;
+	border: 0;
+        height: 1px;
+       	background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.3), rgba(0,0,0,0));
+	background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.3), rgba(0,0,0,0));
+	background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.3), rgba(0,0,0,0));
+	background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.3), rgba(0,0,0,0));
+}
