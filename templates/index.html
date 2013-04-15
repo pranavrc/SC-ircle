@@ -15,7 +15,7 @@
 <body>
 
 <div class="formDiv">
-<form id="userform" action="" onsubmit="return submitForm();">
+<form id="userform"> <!--action="" onsubmit="return submitForm();"-->
 <fieldset>
 <input class="submitText" type="text" placeholder="Soundcloud Profile Link Name (soundcloud.com/this/)" name="name" />
 <input class="submitBtn" type="submit" value="Submit" disabled="disabled" onclick="return submitForm();" />
@@ -42,11 +42,16 @@
 <script type="text/javascript" src="{{ url_for('static', filename='jquery.watermarkinput.js') }}"></script>
 <script type="text/javascript">
 	/*<![CDATA[*/
+	var requests;
+
 	function submitForm() {
 		$('div.myDiv').html('<img src="{{ url_for('static', filename='loader.gif') }}" alt="Fetching..." />');
-    	$.ajax({type:'POST', url: '/', data:$('#userform').serialize(), success: function(response) {
-        	$('div.myDiv').html(response);
-		}});
+
+		if (requests) requests.abort();
+
+    	requests = $.ajax({type:'POST', url: '/', data:$('#userform').serialize(), success: function(response) {
+				   		$('div.myDiv').html(response);
+				   }});
 
 		return false;
 	}
