@@ -57,7 +57,7 @@ def returnBlacklist(username):
         return 'Looks like circlejerks weren\'t pulled on this user.'
 
     for followerName, eachFollower in followingList.items():
-        blackSheep = blackSheep + '<a href="http://soundcloud.com' + eachFollower + '/">' + followerName + '</a>' + '<br />'
+        blackSheep = blackSheep + '<a href="http://soundcloud.com' + eachFollower + '/" target="_blank">' + followerName + '</a>' + '<br />'
     
     return blackSheep.encode('ascii', 'ignore')
 
