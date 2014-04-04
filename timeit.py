@@ -1,5 +1,5 @@
 import time
-from weedemout import *
+from test import *
 
 username = str(raw_input("Enter Soundcloud username: "))
 st = time.time()

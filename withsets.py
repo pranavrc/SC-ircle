@@ -6,7 +6,7 @@ import sys
 import socket
 
 def returnBlacklist(username):
-    followingList = {}
+    followingList = [] 
     followedList = []
     blackSheep = ''
     pageNumber = 1
@@ -42,25 +42,23 @@ def returnBlacklist(username):
             break
 
         for following in followingSoup:
-            followingList[following.findAll(text=True)[0]] = following.find("a").get("href")
+            followingList.append(following.find("a").get("href"))
 
         for followed in followersSoup:
             followedList.append(followed.find("a").get("href"))
 
         pageNumber = pageNumber + 1
 
-    for followerName, eachFollower in followingList.items():
-        if eachFollower in followedList:
-            del followingList[followerName]
-
-    if len(followingList.keys()) == 0:
+    temp = [x for x in followingList if x not in set(followedList)]
+    
+    if len(temp) == 0:
         return 'Looks like circlejerks weren\'t pulled on this user.'
 
-    for followerName, eachFollower in followingList.items():
-        blackSheep = blackSheep + '<a href="http://soundcloud.com' + eachFollower + '/" target="_blank">' + followerName + '</a>' + '<br />'
+    for followerName in temp:
+        blackSheep = blackSheep + '<a href="http://soundcloud.com' + followerName + '/">' + followerName[1:] + '</a>' + '<br />'
     
     return blackSheep.encode('ascii', 'ignore')
 
 if __name__ == "__main__":
     uname = str(raw_input("Enter your Soundcloud Username: "))
-    print(returnBlacklist(uname))
+    print returnBlacklist(uname)
