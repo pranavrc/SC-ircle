@@ -16,11 +16,9 @@ def returnBlacklist(username):
     while True:
         try:
             if scrapeFollowing:
-                followingPage = urllib2.urlopen("http://soundcloud.com/" + username + "/following?page=" + str(pageNumber), timeout = 3).read()
+                followingPage = urllib2.urlopen("http://soundcloud.com/" + username + "/following?page=" + str(pageNumber)).read()
             if scrapeFollowers:
-                followersPage = urllib2.urlopen("http://soundcloud.com/" + username + "/followers?page=" + str(pageNumber), timeout = 3).read()
-        except urllib2.HTTPError, e:
-            return 'User not found.'
+                followersPage = urllib2.urlopen("http://soundcloud.com/" + username + "/followers?page=" + str(pageNumber)).read()
         except urllib2.URLError, e:
             if pageNumber > 1:
                 break
