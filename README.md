@@ -1,7 +1,7 @@
-SC-irclejerk
+SC-ircle
 ============
 
-The SoundCloud Circlejerk - Get a list of SoundCloud users who aren't reciprocating your follow.
+Get a list of SoundCloud users who aren't reciprocating your follow.
 
 Usage: python weedemout.py
 
